@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.dao.AllusersMapper" >
+  <resultMap id="BaseResultMap" type="com.spring.entity.Allusers" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="cx" property="cx" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, pwd, cx, addtime
+  </sql>
+  <select id="login" resultMap="BaseResultMap" parameterType="com.spring.entity.Allusers" >
+    select
+    <include refid="Base_Column_List" />
+    from allusers
+    where username = #{username} AND pwd = #{pwd}
+  </select>
+
+</mapper>
